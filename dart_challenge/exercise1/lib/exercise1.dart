@@ -1,7 +1,3 @@
-void main(List<String> args) {
-  printSquare(3);
-}
-
 void printSquare(int size) {
   if (size < 1) {
     print("Size must be greater than 0");
