@@ -1,6 +1,7 @@
 import 'package:english_words/english_words.dart';
+import 'package:first_flutter_app/page/favorite_page.dart';
+import 'package:first_flutter_app/page/generator_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -105,113 +106,5 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
     });
-  }
-}
-
-class GeneratorPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-    var pair = appState.current;
-
-    IconData icon;
-    if (appState.favorites.contains(pair)) {
-      icon = Icons.favorite;
-    } else {
-      icon = Icons.favorite_border;
-    }
-
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          BigCard(pair: pair),
-          SizedBox(height: 10),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ElevatedButton.icon(
-                onPressed: () {
-                  appState.toggleFavorite();
-                },
-                icon: Icon(icon),
-                label: Text('Like'),
-              ),
-              SizedBox(width: 10),
-              ElevatedButton(
-                onPressed: () {
-                  appState.getNext();
-                },
-                child: Text('Next'),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class BigCard extends StatelessWidget {
-  const BigCard({
-    super.key,
-    required this.pair,
-  });
-
-  final WordPair pair;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final style = theme.textTheme.displayMedium!
-        .copyWith(color: theme.colorScheme.onPrimary);
-    return Card(
-      color: theme.colorScheme.primary,
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Text(
-          pair.asLowerCase,
-          style: style,
-          semanticsLabel: "${pair.first} ${pair.second}",
-        ),
-      ),
-    );
-  }
-}
-
-class FavortitePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-
-    if (appState.favorites.isEmpty) {
-      return Text("Your favortite list is empty");
-    }
-
-    return Padding(
-      padding: const EdgeInsets.all(32.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("You have ${appState.favorites.length} favorites: "),
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                return Row(
-                  children: [
-                    Text(appState.favorites[index].asLowerCase),
-                    Spacer(),
-                    IconButton(onPressed: () {
-                      appState.removeFavorite(appState.favorites[index]);
-                    }, icon: Icon(Icons.delete))
-                  ],
-                );
-              },
-              itemCount: appState.favorites.length,
-            ),
-          ),
-        ],
-      ),
-    );
   }
 }
