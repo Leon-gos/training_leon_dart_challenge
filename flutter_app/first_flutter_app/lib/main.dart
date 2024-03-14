@@ -43,6 +43,11 @@ class MyAppState extends ChangeNotifier {
     }
     notifyListeners();
   }
+
+  void removeFavorite(WordPair wordPair) {
+    favorites.remove(wordPair);
+    notifyListeners();
+  }
 }
 
 class MyHomePage extends StatefulWidget {
@@ -192,9 +197,14 @@ class FavortitePage extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemBuilder: (context, index) {
-                return ListTile(
-                  leading: Icon(Icons.favorite),
-                  title: Text(appState.favorites[index].asLowerCase),
+                return Row(
+                  children: [
+                    Text(appState.favorites[index].asLowerCase),
+                    Spacer(),
+                    IconButton(onPressed: () {
+                      appState.removeFavorite(appState.favorites[index]);
+                    }, icon: Icon(Icons.delete))
+                  ],
                 );
               },
               itemCount: appState.favorites.length,
