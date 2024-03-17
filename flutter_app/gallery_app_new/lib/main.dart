@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app_new/modules/home/screen/home_screen.dart';
+import 'package:gallery_app_new/modules/text/screen/text_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +27,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeScreen();
+    return const TextScreen();
   }
 }
