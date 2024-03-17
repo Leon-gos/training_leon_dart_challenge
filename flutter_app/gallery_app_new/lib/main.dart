@@ -26,19 +26,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-    //     title: const Text("My widget"),
-    //     actions: [
-    //       Container(
-    //         margin: const EdgeInsets.only(right: 16),
-    //         child: const Icon(Icons.account_circle),
-    //       )
-    //     ],
-    //   ),
-    //   body: HomeScreen(),
-    // );
     return const HomeScreen();
   }
 }
