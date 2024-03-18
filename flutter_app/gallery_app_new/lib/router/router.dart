@@ -1,4 +1,5 @@
 import 'package:gallery_app_new/modules/home/screen/home_screen.dart';
+import 'package:gallery_app_new/modules/row_column/screen/row_and_column_screen.dart';
 import 'package:gallery_app_new/modules/stack_align/screen/stack_align_screen.dart';
 import 'package:gallery_app_new/modules/text/screen/text_screen.dart';
 import 'package:gallery_app_new/router/route_name.dart';
@@ -23,6 +24,11 @@ class AppRouter {
         path: AppRouteNames.stack.path,
         builder: (context, state) => const StackAlignScreen(),
       ),
+      GoRoute(
+        name: AppRouteNames.rowColumn.name,
+        path: AppRouteNames.rowColumn.path,
+        builder: (context, state) => RowAndColumnScreen(),
+      )
     ],
   );
 }
