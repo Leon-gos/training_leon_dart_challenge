@@ -11,7 +11,9 @@ class StackBloc extends Bloc<StackEvent, StackState> {
             stackFit: StackFit.loose,
             clip: Clip.none)) {
 
-    
+    on<AlignChange>((event, emit) {
+      emit(state.copyWith(alignment: event.align));
+    });
 
     on<TextDirectionChange>(
       (event, emit) {
@@ -26,10 +28,6 @@ class StackBloc extends Bloc<StackEvent, StackState> {
     on<StackClipChange>((event, emit) {
       var clip = event.clip;
       emit(state.copyWith(clip: clip));
-    });
-
-    on<AlignChange>((event, emit) {
-      emit(state.copyWith(alignment: event.align));
     });
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app_new/widgets/my_app_bar_widget.dart';
-import 'package:go_router/go_router.dart';
 
 class TextScreen extends StatelessWidget {
   const TextScreen({super.key});
