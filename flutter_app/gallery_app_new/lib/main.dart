@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_app_new/locator.dart';
+import 'package:gallery_app_new/router/router.dart';
+import 'package:get_it/get_it.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_app_new/modules/home/screen/home_screen.dart';
 import 'package:gallery_app_new/modules/stack_align/bloc/align_bloc/stack_bloc.dart';
@@ -6,33 +9,15 @@ import 'package:gallery_app_new/modules/stack_align/screen/stack_align_screen.da
 import 'package:gallery_app_new/modules/text/screen/text_screen.dart';
 import 'package:go_router/go_router.dart';
 
-void main() {
+Future<void> main() async {
+  await initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-  final _router = GoRouter(
-    initialLocation: '/',
-    routes: [
-      GoRoute(
-        name: 'home',
-        path: '/',
-        builder: (context, state) => const HomeScreen(),
-      ),
-      GoRoute(
-        name: 'richText',
-        path: '/richText',
-        builder: (context, state) => const TextScreen(),
-      ),
-      GoRoute(
-        name: 'stackAlign',
-        path: '/stackAlign',
-        builder: (context, state) => const StackAlignScreen(),
-      )
-    ],
-  );
+  final _appRouter = GetIt.I<AppRouter>();
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +33,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          routerConfig: _router,
+          routerConfig: _appRouter.router,
           debugShowCheckedModeBanner: false,
         ));
   }
