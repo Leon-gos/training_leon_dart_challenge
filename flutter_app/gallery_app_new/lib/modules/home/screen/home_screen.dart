@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_app_new/router/route_name.dart';
 import 'package:gallery_app_new/widgets/home_list_tile_widget.dart';
 import 'package:go_router/go_router.dart';
 
@@ -30,7 +31,7 @@ class HomeScreen extends StatelessWidget {
             subtitle: "All of the predefinded text style",
             leadingIcon: Icons.text_fields,
             onClick: () {
-              context.push("/richText");
+              context.push(AppRouteNames.richText.path);
             },
           ),
           const HomeListTileWidget(
