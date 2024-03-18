@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_app_new/modules/stack_align/bloc/align_bloc/stack_bloc.dart';
 import 'package:gallery_app_new/modules/stack_align/bloc/align_bloc/stack_event.dart';
 import 'package:gallery_app_new/modules/stack_align/bloc/align_bloc/stack_state.dart';
+import 'package:gallery_app_new/widgets/my_app_bar_widget.dart';
 
 class StackAlignScreen extends StatelessWidget {
   const StackAlignScreen({super.key});
@@ -11,41 +12,45 @@ class StackAlignScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<StackBloc, StackState>(builder: (context, state) {
       return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text("Stack & Align"),
-          actions: [
-            Container(
-              margin: const EdgeInsets.only(right: 16),
-              child: const Icon(Icons.account_circle),
-            )
-          ],
-        ),
-        body: SizedBox(
+        appBar: const MyAppBarWidget(title: "Stack & Align",).build(context),
+        body: Container(
           width: double.infinity,
+          padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Stack(
-                alignment: state.alignment,
-                textDirection: state.textDirection,
-                children: [
-                  Container(
-                    width: 200,
-                    height: 200,
-                    color: Colors.blue,
-                  ),
-                  Container(
-                    width: 150,
-                    height: 150,
-                    color: Colors.green,
-                  ),
-                  Container(
-                    width: 100,
-                    height: 100,
-                    color: Colors.orange,
-                  )
-                ],
+              SizedBox(
+                width: 200,
+                height: 300,
+                child: Stack(
+                  alignment: state.alignment,
+                  textDirection: state.textDirection,
+                  fit: state.stackFit,
+                  clipBehavior: state.clip,
+                  children: [
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Container(
+                          width: 200,
+                          height: 200,
+                          margin: const EdgeInsets.symmetric(vertical: 50),
+                          color: Colors.blue,
+                        ),
+                        Container(
+                          width: 150,
+                          height: 150,
+                          color: Colors.green,
+                        ),
+                      ],
+                    ),
+                    Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.orange,
+                    )
+                  ],
+                ),
               ),
               Row(
                 children: [
@@ -117,6 +122,53 @@ class StackAlignScreen extends StatelessWidget {
                         value: TextDirection.rtl,
                         child: Text("rtl"),
                       )
+                    ],
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  const Text("StackFit"),
+                  const Spacer(),
+                  DropdownButton(
+                    onChanged: (value) {
+                      context
+                          .read<StackBloc>()
+                          .add(StackFitChange(stackFit: value!));
+                    },
+                    value: state.stackFit,
+                    items: const [
+                      DropdownMenuItem(
+                          value: StackFit.expand, child: Text("expand")),
+                      DropdownMenuItem(
+                          value: StackFit.loose, child: Text("loose")),
+                      DropdownMenuItem(
+                          value: StackFit.passthrough,
+                          child: Text("passthrough")),
+                    ],
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  const Text("Clip"),
+                  const Spacer(),
+                  DropdownButton(
+                    onChanged: (value) {
+                      context
+                          .read<StackBloc>()
+                          .add(StackClipChange(clip: value!));
+                    },
+                    value: state.clip,
+                    items: const [
+                      DropdownMenuItem(value: Clip.none, child: Text("none")),
+                      DropdownMenuItem(
+                          value: Clip.hardEdge, child: Text("hardEdge")),
+                      DropdownMenuItem(
+                          value: Clip.antiAlias, child: Text("antiAlias")),
+                      DropdownMenuItem(
+                          value: Clip.antiAliasWithSaveLayer,
+                          child: Text("antiAliasWithSaveLayer")),
                     ],
                   )
                 ],

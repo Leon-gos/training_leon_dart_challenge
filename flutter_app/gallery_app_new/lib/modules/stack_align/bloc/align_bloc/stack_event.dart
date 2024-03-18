@@ -18,3 +18,19 @@ class TextDirectionChange extends StackEvent {
     required this.textDirection,
   });
 }
+
+class StackFitChange extends StackEvent {
+  StackFit stackFit;
+
+  StackFitChange({
+    required this.stackFit,
+  });
+}
+
+class StackClipChange extends StackEvent {
+  Clip clip;
+  
+  StackClipChange({
+    required this.clip,
+  });
+}

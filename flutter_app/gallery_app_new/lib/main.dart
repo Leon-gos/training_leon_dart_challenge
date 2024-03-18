@@ -3,11 +3,7 @@ import 'package:gallery_app_new/locator.dart';
 import 'package:gallery_app_new/router/router.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gallery_app_new/modules/home/screen/home_screen.dart';
 import 'package:gallery_app_new/modules/stack_align/bloc/align_bloc/stack_bloc.dart';
-import 'package:gallery_app_new/modules/stack_align/screen/stack_align_screen.dart';
-import 'package:gallery_app_new/modules/text/screen/text_screen.dart';
-import 'package:go_router/go_router.dart';
 
 Future<void> main() async {
   await initializeApp();
