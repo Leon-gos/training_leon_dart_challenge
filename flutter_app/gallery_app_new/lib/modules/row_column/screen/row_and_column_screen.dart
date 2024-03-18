@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_app_new/modules/row_column/bloc/row_column_bloc.dart';
+import 'package:gallery_app_new/modules/row_column/bloc/row_column_cubit.dart';
 import 'package:gallery_app_new/modules/row_column/bloc/row_column_event.dart';
 import 'package:gallery_app_new/modules/row_column/bloc/row_column_state.dart';
 import 'package:gallery_app_new/widgets/my_app_bar_widget.dart';
@@ -50,12 +51,9 @@ class RowAndColumnScreen extends StatelessWidget {
     )
   ];
 
-  static const List<String> options = ["row", "column"];
-  var groupValue = options[0];
-
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RowColumnBloc, RowColumnState>(
+    return BlocBuilder<RowColumnCubit, RowColumnState>(
         builder: (context, state) {
       return Scaffold(
         appBar: const MyAppBarWidget(title: "Row & Column").build(context),
@@ -109,8 +107,8 @@ class RowAndColumnScreen extends StatelessWidget {
                             groupValue: state.isRow,
                             onChanged: (value) {
                               context
-                                  .read<RowColumnBloc>()
-                                  .add(RowColumnTypeChange(isRow: value!));
+                                  .read<RowColumnCubit>()
+                                  .changeRowColumnType(value!);
                             },
                           ),
                         ),
@@ -122,8 +120,8 @@ class RowAndColumnScreen extends StatelessWidget {
                             groupValue: state.isRow,
                             onChanged: (value) {
                               context
-                                  .read<RowColumnBloc>()
-                                  .add(RowColumnTypeChange(isRow: value!));
+                                  .read<RowColumnCubit>()
+                                  .changeRowColumnType(value!);
                             },
                           ),
                         ),
@@ -136,9 +134,9 @@ class RowAndColumnScreen extends StatelessWidget {
                         DropdownButton(
                           value: state.mainAxisSize,
                           onChanged: (value) {
-                            context.read<RowColumnBloc>().add(
-                                RowColumnMainAsixSizeChange(
-                                    mainAxisSize: value!));
+                            context
+                                .read<RowColumnCubit>()
+                                .changeMainAxisSize(value!);
                           },
                           items: const [
                             DropdownMenuItem(
@@ -160,9 +158,9 @@ class RowAndColumnScreen extends StatelessWidget {
                         DropdownButton(
                           value: state.mainAxisAlignment,
                           onChanged: (value) {
-                            context.read<RowColumnBloc>().add(
-                                RowColumnMainAxisAlignmentChange(
-                                    mainAxisAlignment: value!));
+                            context
+                                .read<RowColumnCubit>()
+                                .changeMainAxisAlignment(value!);
                           },
                           items: const [
                             DropdownMenuItem(
@@ -200,9 +198,9 @@ class RowAndColumnScreen extends StatelessWidget {
                         DropdownButton(
                           value: state.crossAxisAlignment,
                           onChanged: (value) {
-                            context.read<RowColumnBloc>().add(
-                                RowColumnCrossAxisAlignmentChange(
-                                    crossAxisAlignment: value!));
+                            context
+                                .read<RowColumnCubit>()
+                                .changeCrossAxisAlignment(value!);
                           },
                           items: const [
                             DropdownMenuItem(
