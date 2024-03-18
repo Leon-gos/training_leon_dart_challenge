@@ -26,7 +26,7 @@ class TextScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             text: TextSpan(
               text: "First ",
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
               children: [
                 const WidgetSpan(
                   child: Icon(
@@ -57,7 +57,7 @@ class TextScreen extends StatelessWidget {
           RichText(
             text: const TextSpan(
               text: "One ",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
               children: [
                 TextSpan(
                     text: "Two ",
