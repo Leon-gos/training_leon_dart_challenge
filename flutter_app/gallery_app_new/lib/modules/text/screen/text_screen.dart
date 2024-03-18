@@ -18,9 +18,11 @@ class TextScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           const Text(
-            "Creates a text widget. If the [style] argument is null, the text will use the style from the...",
+            "Creates a text widget. If the [style] argument is null, the text will use the style from the closest enclosing DefaultTextStyle",
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24),
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(fontSize: 32, color: Colors.pink),
           ),
           RichText(
             textAlign: TextAlign.center,
