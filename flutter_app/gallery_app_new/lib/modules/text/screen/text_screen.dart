@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class TextScreen extends StatelessWidget {
   const TextScreen({super.key});
@@ -11,7 +12,9 @@ class TextScreen extends StatelessWidget {
         title: const Text("Rich text view"),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: () {},
+          onPressed: () {
+            context.pop();
+          },
         ),
       ),
       body: Column(
