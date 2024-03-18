@@ -10,3 +10,11 @@ class AlignChange extends StackEvent {
     required this.align,
   });
 }
+
+class TextDirectionChange extends StackEvent {
+  TextDirection textDirection;
+  
+  TextDirectionChange({
+    required this.textDirection,
+  });
+}
