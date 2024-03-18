@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:gallery_app_new/modules/home/screen/home_screen.dart';
+import 'package:gallery_app_new/locator.dart';
+import 'package:gallery_app_new/router/router.dart';
+import 'package:get_it/get_it.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  await initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final _appRouter = GetIt.I<AppRouter>();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      routerConfig: _appRouter.router,
       debugShowCheckedModeBanner: false,
     );
   }
