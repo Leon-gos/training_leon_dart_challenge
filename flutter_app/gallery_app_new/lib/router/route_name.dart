@@ -2,7 +2,8 @@ enum AppRouteNames {
   home(path: '/'),
   richText(path: '/richText'),
   stack(path: '/stack'),
-  rowColumn(path: '/rowColumn');
+  rowColumn(path: '/rowColumn'),
+  container(path: '/container');
 
   const AppRouteNames({
     required this.path,
