@@ -2,9 +2,20 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
+enum BorderRadiusType {
+  borderNone(value: 0),
+  border8(value: 8),
+  border16(value: 16),
+  border32(value: 32);
+
+  final double value;
+
+  const BorderRadiusType({required this.value});
+}
+
 class ContainerState extends Equatable{
   final bool hasBorder;
-  final BorderRadiusGeometry borderRadius;
+  final BorderRadiusType borderRadius;
   final bool hasBoxShadow;
   final Color background;
   final BlendMode blendMode;
@@ -13,7 +24,7 @@ class ContainerState extends Equatable{
 
   ContainerState copyWith({
     bool? hasBorder,
-    BorderRadiusGeometry? borderRadius,
+    BorderRadiusType? borderRadius,
     bool? hasBoxShadow,
     Color? background,
     BlendMode? blendMode,

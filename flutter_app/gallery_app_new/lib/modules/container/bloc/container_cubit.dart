@@ -7,17 +7,17 @@ class ContainerCubit extends Cubit<ContainerState> {
       : super(
           const ContainerState(
               hasBorder: false,
-              borderRadius: BorderRadius.zero,
+              borderRadius: BorderRadiusType.borderNone,
               hasBoxShadow: false,
               background: Colors.blue,
-              blendMode: BlendMode.clear),
+              blendMode: BlendMode.src),
         );
   
   void changeBorder(bool hasBorder){
     emit(state.copyWith(hasBorder: hasBorder));
   }
 
-  void changeBorderRadius(BorderRadiusGeometry borderRadius) {
+  void changeBorderRadius(BorderRadiusType borderRadius) {
     emit(state.copyWith(borderRadius: borderRadius));
   }
 
