@@ -10,8 +10,7 @@ class ContainerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBarWidget(title: "Container view").build(context)
-          as AppBar,
+      appBar: const MyAppBarWidget(title: "Container view"),
       body: Column(
         children: [
           Expanded(
