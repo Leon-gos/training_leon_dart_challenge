@@ -54,35 +54,14 @@ class RowAndColumnScreen extends StatelessWidget {
     return BlocBuilder<RowColumnCubit, RowColumnState>(
         builder: (context, state) {
       return Scaffold(
-        appBar: const MyAppBarWidget(title: "Row & Column").build(context),
+        appBar: const MyAppBarWidget(title: "Row & Column").build(context) as AppBar,
         body: Column(
           children: [
             Expanded(
               flex: 1,
               child: Align(
                 alignment: Alignment.topLeft,
-                child: Container(
-                  color: Colors.yellow,
-                  child: state.isRow
-                      ? Row(
-                          mainAxisSize: state.mainAxisSize,
-                          mainAxisAlignment: state.mainAxisAlignment,
-                          crossAxisAlignment: state.crossAxisAlignment,
-                          verticalDirection: state.verticalDirection,
-                          textDirection: state.textDirection,
-                          textBaseline: state.textBaseline,
-                          children: items,
-                        )
-                      : Column(
-                          mainAxisSize: state.mainAxisSize,
-                          mainAxisAlignment: state.mainAxisAlignment,
-                          crossAxisAlignment: state.crossAxisAlignment,
-                          verticalDirection: state.verticalDirection,
-                          textDirection: state.textDirection,
-                          textBaseline: state.textBaseline,
-                          children: items,
-                        ),
-                ),
+                child: _buildDemo(state),
               ),
             ),
             const Divider(
@@ -96,179 +75,13 @@ class RowAndColumnScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: RadioListTile(
-                              title: const Text("Row"),
-                              value: true,
-                              groupValue: state.isRow,
-                              onChanged: (value) {
-                                context
-                                    .read<RowColumnCubit>()
-                                    .changeRowColumnType(value!);
-                              },
-                            ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: RadioListTile(
-                              title: const Text("Column"),
-                              value: false,
-                              groupValue: state.isRow,
-                              onChanged: (value) {
-                                context
-                                    .read<RowColumnCubit>()
-                                    .changeRowColumnType(value!);
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Text("mainAxisSize"),
-                          const Spacer(),
-                          DropdownButton(
-                            value: state.mainAxisSize,
-                            onChanged: (value) {
-                              context
-                                  .read<RowColumnCubit>()
-                                  .changeMainAxisSize(value!);
-                            },
-                            items: const [
-                              DropdownMenuItem(
-                                value: MainAxisSize.max,
-                                child: Text("max"),
-                              ),
-                              DropdownMenuItem(
-                                value: MainAxisSize.min,
-                                child: Text("min"),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Text("mainAxisAlignment"),
-                          const Spacer(),
-                          DropdownButton(
-                            value: state.mainAxisAlignment,
-                            onChanged: (value) {
-                              context
-                                  .read<RowColumnCubit>()
-                                  .changeMainAxisAlignment(value!);
-                            },
-                            items: const [
-                              DropdownMenuItem(
-                                value: MainAxisAlignment.start,
-                                child: Text("start"),
-                              ),
-                              DropdownMenuItem(
-                                value: MainAxisAlignment.end,
-                                child: Text("end"),
-                              ),
-                              DropdownMenuItem(
-                                value: MainAxisAlignment.center,
-                                child: Text("center"),
-                              ),
-                              DropdownMenuItem(
-                                value: MainAxisAlignment.spaceBetween,
-                                child: Text("spaceBetween"),
-                              ),
-                              DropdownMenuItem(
-                                value: MainAxisAlignment.spaceAround,
-                                child: Text("spaceAround"),
-                              ),
-                              DropdownMenuItem(
-                                value: MainAxisAlignment.spaceEvenly,
-                                child: Text("spaceEvenly"),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Text("crossAxisAlignment"),
-                          const Spacer(),
-                          DropdownButton(
-                            value: state.crossAxisAlignment,
-                            onChanged: (value) {
-                              context
-                                  .read<RowColumnCubit>()
-                                  .changeCrossAxisAlignment(value!);
-                            },
-                            items: const [
-                              DropdownMenuItem(
-                                  value: CrossAxisAlignment.start,
-                                  child: Text("start")),
-                              DropdownMenuItem(
-                                  value: CrossAxisAlignment.end,
-                                  child: Text("end")),
-                              DropdownMenuItem(
-                                  value: CrossAxisAlignment.center,
-                                  child: Text("center")),
-                              DropdownMenuItem(
-                                  value: CrossAxisAlignment.stretch,
-                                  child: Text("stretch")),
-                              DropdownMenuItem(
-                                  value: CrossAxisAlignment.baseline,
-                                  child: Text("baseline")),
-                            ],
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Text("verticalDirection"),
-                          const Spacer(),
-                          DropdownButton(
-                            value: state.verticalDirection,
-                            onChanged: (value) {
-                              context.read<RowColumnCubit>().changeVerticalDirection(value!);
-                            },
-                            items: const [
-                              DropdownMenuItem(value: VerticalDirection.down, child: Text("down")),
-                              DropdownMenuItem(value: VerticalDirection.up, child: Text("up")),
-                            ],
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Text("textDirection"),
-                          const Spacer(),
-                          DropdownButton(
-                            value: state.textDirection,
-                            onChanged: (value) {
-                              context.read<RowColumnCubit>().changeTextDirection(value!);
-                            },
-                            items: const [
-                              DropdownMenuItem(value: TextDirection.ltr, child: Text("ltr")),
-                              DropdownMenuItem(value: TextDirection.rtl, child: Text("rtl")),
-                            ],
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Text("textBaseline"),
-                          const Spacer(),
-                          DropdownButton(
-                            value: state.textBaseline,
-                            onChanged: (value) {
-                              context.read<RowColumnCubit>().changeTextBaseline(value!);
-                            },
-                            items: const [
-                              DropdownMenuItem(value: TextBaseline.alphabetic, child: Text("alphabetic")),
-                              DropdownMenuItem(value: TextBaseline.ideographic, child: Text("ideographic")),
-                            ],
-                          )
-                        ],
-                      ),
+                      _buildRowRowOrColumn(context, state),
+                      _buildRowMainAxisSize(context, state),
+                      _buildRowMainAxisAlignment(context, state),
+                      _buildRowCrossAxisAlignment(context, state),
+                      _buildRowVerticalDirection(context, state),
+                      _buildRowTextDirection(context, state),
+                      _buildRowTextBaseline(context, state),
                     ],
                   ),
                 ),
@@ -278,5 +91,214 @@ class RowAndColumnScreen extends StatelessWidget {
         ),
       );
     });
+  }
+
+  Widget _buildDemo(RowColumnState state) {
+    return Container(
+      color: Colors.yellow,
+      child: state.isRow
+          ? Row(
+              mainAxisSize: state.mainAxisSize,
+              mainAxisAlignment: state.mainAxisAlignment,
+              crossAxisAlignment: state.crossAxisAlignment,
+              verticalDirection: state.verticalDirection,
+              textDirection: state.textDirection,
+              textBaseline: state.textBaseline,
+              children: items,
+            )
+          : Column(
+              mainAxisSize: state.mainAxisSize,
+              mainAxisAlignment: state.mainAxisAlignment,
+              crossAxisAlignment: state.crossAxisAlignment,
+              verticalDirection: state.verticalDirection,
+              textDirection: state.textDirection,
+              textBaseline: state.textBaseline,
+              children: items,
+            ),
+    );
+  }
+
+  Widget _buildRowRowOrColumn(BuildContext context, RowColumnState state) {
+    return Row(
+      children: [
+        Expanded(
+          flex: 1,
+          child: RadioListTile(
+            title: const Text("Row"),
+            value: true,
+            groupValue: state.isRow,
+            onChanged: (value) {
+              context.read<RowColumnCubit>().changeRowColumnType(value!);
+            },
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: RadioListTile(
+            title: const Text("Column"),
+            value: false,
+            groupValue: state.isRow,
+            onChanged: (value) {
+              context.read<RowColumnCubit>().changeRowColumnType(value!);
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildRowMainAxisSize(BuildContext context, RowColumnState state) {
+    return Row(
+      children: [
+        const Text("mainAxisSize"),
+        const Spacer(),
+        DropdownButton(
+          value: state.mainAxisSize,
+          onChanged: (value) {
+            context.read<RowColumnCubit>().changeMainAxisSize(value!);
+          },
+          items: const [
+            DropdownMenuItem(
+              value: MainAxisSize.max,
+              child: Text("max"),
+            ),
+            DropdownMenuItem(
+              value: MainAxisSize.min,
+              child: Text("min"),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget _buildRowMainAxisAlignment(
+      BuildContext context, RowColumnState state) {
+    return Row(
+      children: [
+        const Text("mainAxisAlignment"),
+        const Spacer(),
+        DropdownButton(
+          value: state.mainAxisAlignment,
+          onChanged: (value) {
+            context.read<RowColumnCubit>().changeMainAxisAlignment(value!);
+          },
+          items: const [
+            DropdownMenuItem(
+              value: MainAxisAlignment.start,
+              child: Text("start"),
+            ),
+            DropdownMenuItem(
+              value: MainAxisAlignment.end,
+              child: Text("end"),
+            ),
+            DropdownMenuItem(
+              value: MainAxisAlignment.center,
+              child: Text("center"),
+            ),
+            DropdownMenuItem(
+              value: MainAxisAlignment.spaceBetween,
+              child: Text("spaceBetween"),
+            ),
+            DropdownMenuItem(
+              value: MainAxisAlignment.spaceAround,
+              child: Text("spaceAround"),
+            ),
+            DropdownMenuItem(
+              value: MainAxisAlignment.spaceEvenly,
+              child: Text("spaceEvenly"),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget _buildRowCrossAxisAlignment(
+      BuildContext context, RowColumnState state) {
+    return Row(
+      children: [
+        const Text("crossAxisAlignment"),
+        const Spacer(),
+        DropdownButton(
+          value: state.crossAxisAlignment,
+          onChanged: (value) {
+            context.read<RowColumnCubit>().changeCrossAxisAlignment(value!);
+          },
+          items: const [
+            DropdownMenuItem(
+                value: CrossAxisAlignment.start, child: Text("start")),
+            DropdownMenuItem(value: CrossAxisAlignment.end, child: Text("end")),
+            DropdownMenuItem(
+                value: CrossAxisAlignment.center, child: Text("center")),
+            DropdownMenuItem(
+                value: CrossAxisAlignment.stretch, child: Text("stretch")),
+            DropdownMenuItem(
+                value: CrossAxisAlignment.baseline, child: Text("baseline")),
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget _buildRowVerticalDirection(
+      BuildContext context, RowColumnState state) {
+    return Row(
+      children: [
+        const Text("verticalDirection"),
+        const Spacer(),
+        DropdownButton(
+          value: state.verticalDirection,
+          onChanged: (value) {
+            context.read<RowColumnCubit>().changeVerticalDirection(value!);
+          },
+          items: const [
+            DropdownMenuItem(
+                value: VerticalDirection.down, child: Text("down")),
+            DropdownMenuItem(value: VerticalDirection.up, child: Text("up")),
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget _buildRowTextDirection(BuildContext context, RowColumnState state) {
+    return Row(
+      children: [
+        const Text("textDirection"),
+        const Spacer(),
+        DropdownButton(
+          value: state.textDirection,
+          onChanged: (value) {
+            context.read<RowColumnCubit>().changeTextDirection(value!);
+          },
+          items: const [
+            DropdownMenuItem(value: TextDirection.ltr, child: Text("ltr")),
+            DropdownMenuItem(value: TextDirection.rtl, child: Text("rtl")),
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget _buildRowTextBaseline(BuildContext context, RowColumnState state) {
+    return Row(
+      children: [
+        const Text("textBaseline"),
+        const Spacer(),
+        DropdownButton(
+          value: state.textBaseline,
+          onChanged: (value) {
+            context.read<RowColumnCubit>().changeTextBaseline(value!);
+          },
+          items: const [
+            DropdownMenuItem(
+                value: TextBaseline.alphabetic, child: Text("alphabetic")),
+            DropdownMenuItem(
+                value: TextBaseline.ideographic, child: Text("ideographic")),
+          ],
+        )
+      ],
+    );
   }
 }
