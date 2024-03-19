@@ -67,6 +67,7 @@ class ButtonScreen extends StatelessWidget {
 
   Widget _buildDropdownFormField() {
     return BlocBuilder<ButtonCubit, ButtonState>(
+      buildWhen: (previous, current) => previous.dropdownFormFieldValue != current.dropdownFormFieldValue,
       builder: (context, state) => DropdownButtonFormField(
         value: state.dropdownFormFieldValue,
         onChanged: (value) {
