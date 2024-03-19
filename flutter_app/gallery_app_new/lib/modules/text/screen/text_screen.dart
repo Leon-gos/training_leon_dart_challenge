@@ -7,7 +7,7 @@ class TextScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBarWidget(title: "Rich text view").build(context) as AppBar,
+      appBar: const MyAppBarWidget(title: "Rich text view"),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
