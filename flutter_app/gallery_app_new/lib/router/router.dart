@@ -1,3 +1,4 @@
+import 'package:gallery_app_new/modules/container/screen/container_screen.dart';
 import 'package:gallery_app_new/modules/home/screen/home_screen.dart';
 import 'package:gallery_app_new/modules/row_column/screen/row_and_column_screen.dart';
 import 'package:gallery_app_new/modules/stack_align/screen/stack_align_screen.dart';
@@ -28,7 +29,12 @@ class AppRouter {
         name: AppRouteNames.rowColumn.name,
         path: AppRouteNames.rowColumn.path,
         builder: (context, state) => RowAndColumnScreen(),
-      )
+      ),
+      GoRoute(
+        name: AppRouteNames.container.name,
+        path: AppRouteNames.container.path,
+        builder: (context, state) => const ContainerScreen(),
+      ),
     ],
   );
 }

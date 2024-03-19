@@ -85,6 +85,15 @@ class HomeScreen extends StatelessWidget {
               context.push(AppRouteNames.stack.path);
             },
           ),
+          HomeListTileWidget(
+            title: "Container",
+            subtitle:
+                "A convenience widget that combines common painting, positioning, and sizing widgets.",
+            leadingIcon: Icons.check_box_outline_blank,
+            onClick: () {
+              context.push(AppRouteNames.container.path);
+            },
+          ),
         ],
       ),
     );
