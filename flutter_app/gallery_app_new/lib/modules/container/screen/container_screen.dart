@@ -12,7 +12,7 @@ class ContainerScreen extends StatelessWidget {
     return BlocBuilder<ContainerCubit, ContainerState>(
         builder: (context, state) {
       return Scaffold(
-        appBar: const MyAppBarWidget(title: "Container view").build(context) as AppBar,
+        appBar: const MyAppBarWidget(title: "Container view"),
         body: Column(
           children: [
             Expanded(
