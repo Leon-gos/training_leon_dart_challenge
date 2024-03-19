@@ -73,6 +73,15 @@ class HomeScreen extends StatelessWidget {
               title: "Wrap & Chip",
               subtitle: "Wrap & Chip",
               leadingIcon: Icons.wrap_text),
+          HomeListTileWidget(
+            title: "Stack & Align",
+            subtitle:
+                "A widget that positions its children relative to the edges of its box",
+            leadingIcon: Icons.wrap_text,
+            onClick: () {
+              context.push(AppRouteNames.stack.path);
+            },
+          ),
         ],
       ),
     );

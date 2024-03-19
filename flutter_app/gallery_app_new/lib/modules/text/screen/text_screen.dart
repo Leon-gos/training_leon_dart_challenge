@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:gallery_app_new/widgets/my_app_bar_widget.dart';
 
 class TextScreen extends StatelessWidget {
   const TextScreen({super.key});
@@ -7,16 +7,7 @@ class TextScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Rich text view"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: () {
-            context.pop();
-          },
-        ),
-      ),
+      appBar: const MyAppBarWidget(title: "Rich text view"),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
