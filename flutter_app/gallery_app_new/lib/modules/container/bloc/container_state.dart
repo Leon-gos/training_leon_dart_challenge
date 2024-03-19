@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
@@ -13,14 +12,28 @@ enum BorderRadiusType {
   const BorderRadiusType({required this.value});
 }
 
-class ContainerState extends Equatable{
+class ContainerState extends Equatable {
   final bool hasBorder;
   final BorderRadiusType borderRadius;
   final bool hasBoxShadow;
   final Color background;
   final BlendMode blendMode;
 
-  const ContainerState({required this.hasBorder, required this.borderRadius, required this.hasBoxShadow, required this.background, required this.blendMode});
+  const ContainerState({
+    required this.hasBorder,
+    required this.borderRadius,
+    required this.hasBoxShadow,
+    required this.background,
+    required this.blendMode,
+  });
+
+  factory ContainerState.ds() => const ContainerState(
+        hasBorder: false,
+        borderRadius: BorderRadiusType.borderNone,
+        hasBoxShadow: false,
+        background: Colors.blue,
+        blendMode: BlendMode.src,
+      );
 
   ContainerState copyWith({
     bool? hasBorder,
@@ -37,7 +50,8 @@ class ContainerState extends Equatable{
       blendMode: blendMode ?? this.blendMode,
     );
   }
-  
+
   @override
-  List<Object?> get props => [hasBorder, borderRadius, hasBoxShadow, background, blendMode];
+  List<Object?> get props =>
+      [hasBorder, borderRadius, hasBoxShadow, background, blendMode];
 }
