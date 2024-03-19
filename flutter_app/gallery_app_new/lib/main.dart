@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app_new/locator.dart';
+import 'package:gallery_app_new/modules/row_column/bloc/row_column_cubit.dart';
 import 'package:gallery_app_new/router/router.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider<StackBloc>(
             create: (context) => StackBloc(),
+          ),
+          BlocProvider<RowColumnCubit>(
+            create: (context) => RowColumnCubit(),
           ),
         ],
         child: MaterialApp.router(
