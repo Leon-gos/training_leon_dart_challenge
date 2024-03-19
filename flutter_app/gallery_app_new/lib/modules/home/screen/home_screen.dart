@@ -38,11 +38,14 @@ class HomeScreen extends StatelessWidget {
               title: "Bottom app bar",
               subtitle: "Bottom application bar",
               leadingIcon: Icons.more_vert_rounded),
-          const HomeListTileWidget(
+          HomeListTileWidget(
               title: "Button",
               subtitle:
                   "RaisedButton, FlatButton, DropdownButton, FloatingActionButton, IconButton, InkWell, RawMaterialButton",
-              leadingIcon: Icons.smart_button_rounded),
+              leadingIcon: Icons.smart_button_rounded,
+              onClick: () {
+                context.push(AppRouteNames.button.path);
+              },),
           const HomeListTileWidget(
               title: "List",
               subtitle: "Scrolling list layout",

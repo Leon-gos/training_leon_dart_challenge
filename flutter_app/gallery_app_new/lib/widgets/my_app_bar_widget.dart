@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class MyAppBarWidget extends StatelessWidget {
+class MyAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Widget? leading;
   final List<Widget>? actions;
@@ -28,4 +28,7 @@ class MyAppBarWidget extends StatelessWidget {
       actions: actions,
     );
   }
+  
+  @override
+  Size get preferredSize =>  const Size.fromHeight(kToolbarHeight);
 }
