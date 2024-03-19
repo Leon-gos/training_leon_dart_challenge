@@ -9,42 +9,67 @@ class ContainerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ContainerCubit, ContainerState>(
-        builder: (context, state) {
-      return Scaffold(
-        appBar: const MyAppBarWidget(title: "Container view").build(context) as AppBar,
-        body: Column(
-          children: [
-            Expanded(
-              flex: 6,
-              child: Center(
-                child: _buildDemo(state),
+    return Scaffold(
+      appBar: const MyAppBarWidget(title: "Container view").build(context)
+          as AppBar,
+      body: Column(
+        children: [
+          Expanded(
+            flex: 6,
+            child: Center(
+              child: BlocBuilder<ContainerCubit, ContainerState>(
+                builder: (context, state) => _buildDemo(state),
               ),
             ),
-            const Divider(
-              height: 0,
-            ),
-            Expanded(
-              flex: 4,
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    children: [
-                      _buildRowBorder(context, state),
-                      _buildRowBorderRadius(context, state),
-                      _buildRowBoxShadow(context, state),
-                      _buildRowBackground(context, state),
-                      _buildRowBlendMode(context, state),
-                    ],
-                  ),
+          ),
+          const Divider(
+            height: 0,
+          ),
+          Expanded(
+            flex: 4,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    BlocBuilder<ContainerCubit, ContainerState>(
+                      buildWhen: (previous, current) =>
+                          previous.hasBorder != current.hasBorder,
+                      builder: (context, state) =>
+                          _buildRowBorder(context, state),
+                    ),
+                    BlocBuilder<ContainerCubit, ContainerState>(
+                      buildWhen: (previous, current) =>
+                          previous.borderRadius != current.borderRadius,
+                      builder: (context, state) =>
+                          _buildRowBorderRadius(context, state),
+                    ),
+                    BlocBuilder<ContainerCubit, ContainerState>(
+                      buildWhen: (previous, current) =>
+                          previous.hasBoxShadow != current.hasBoxShadow,
+                      builder: (context, state) =>
+                          _buildRowBoxShadow(context, state),
+                    ),
+                    BlocBuilder<ContainerCubit, ContainerState>(
+                      buildWhen: (previous, current) =>
+                          previous.background != current.background,
+                      builder: (context, state) =>
+                          _buildRowBackground(context, state),
+                    ),
+                    BlocBuilder<ContainerCubit, ContainerState>(
+                      buildWhen: (previous, current) =>
+                          previous.blendMode != current.blendMode,
+                      builder: (context, state) =>
+                          _buildRowBlendMode(context, state),
+                    ),
+                  ],
                 ),
               ),
-            )
-          ],
-        ),
-      );
-    });
+            ),
+          )
+        ],
+      ),
+    );
   }
 
   Widget _buildDemo(ContainerState state) {
