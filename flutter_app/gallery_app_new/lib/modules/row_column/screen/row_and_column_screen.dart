@@ -54,7 +54,7 @@ class RowAndColumnScreen extends StatelessWidget {
     return BlocBuilder<RowColumnCubit, RowColumnState>(
         builder: (context, state) {
       return Scaffold(
-        appBar: const MyAppBarWidget(title: "Row & Column").build(context),
+        appBar: const MyAppBarWidget(title: "Row & Column").build(context) as AppBar,
         body: Column(
           children: [
             Expanded(
