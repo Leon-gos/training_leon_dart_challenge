@@ -60,18 +60,23 @@ class HomeScreen extends StatelessWidget {
               title: "Alert",
               subtitle: "Alerts, SnackBar & Tooltip",
               leadingIcon: Icons.alarm),
-          const HomeListTileWidget(
-              title: "Text Field",
-              subtitle: "Text Field, Text Field Form",
-              leadingIcon: Icons.text_fields),
           HomeListTileWidget(
-              title: "Row & Column",
-              subtitle:
-                  "A widget that displays its children in a horizontal and vertical array",
-              leadingIcon: Icons.table_rows,
-              onClick: () {
-                context.push(AppRouteNames.rowColumn.path);
-              },),
+            title: "Text Field",
+            subtitle: "Text Field, Text Field Form",
+            leadingIcon: Icons.text_fields,
+            onClick: () {
+              context.push(AppRouteNames.textField.path);
+            },
+          ),
+          HomeListTileWidget(
+            title: "Row & Column",
+            subtitle:
+                "A widget that displays its children in a horizontal and vertical array",
+            leadingIcon: Icons.table_rows,
+            onClick: () {
+              context.push(AppRouteNames.rowColumn.path);
+            },
+          ),
           const HomeListTileWidget(
               title: "Wrap & Chip",
               subtitle: "Wrap & Chip",

@@ -3,7 +3,8 @@ enum AppRouteNames {
   richText(path: '/richText'),
   stack(path: '/stack'),
   rowColumn(path: '/rowColumn'),
-  container(path: '/container');
+  container(path: '/container'),
+  textField(path: '/textField');
 
   const AppRouteNames({
     required this.path,
