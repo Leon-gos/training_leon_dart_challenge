@@ -3,17 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_app_new/modules/container/bloc/container_state.dart';
 
 class ContainerCubit extends Cubit<ContainerState> {
-  ContainerCubit()
-      : super(
-          const ContainerState(
-              hasBorder: false,
-              borderRadius: BorderRadiusType.borderNone,
-              hasBoxShadow: false,
-              background: Colors.blue,
-              blendMode: BlendMode.src),
-        );
-  
-  void changeBorder(bool hasBorder){
+  ContainerCubit() : super(ContainerState.ds());
+
+  void changeBorder(bool hasBorder) {
     emit(state.copyWith(hasBorder: hasBorder));
   }
 

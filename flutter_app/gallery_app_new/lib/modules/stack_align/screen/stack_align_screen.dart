@@ -12,7 +12,7 @@ class StackAlignScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<StackBloc, StackState>(builder: (context, state) {
       return Scaffold(
-        appBar: const MyAppBarWidget(title: "Stack & Align",).build(context) as AppBar,
+        appBar: const MyAppBarWidget(title: "Stack & Align",),
         body: Container(
           width: double.infinity,
           padding: const EdgeInsets.all(16),
