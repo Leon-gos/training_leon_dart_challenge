@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gallery_app_new/modules/row_column/bloc/row_column_bloc.dart';
 import 'package:gallery_app_new/modules/row_column/bloc/row_column_cubit.dart';
-import 'package:gallery_app_new/modules/row_column/bloc/row_column_event.dart';
 import 'package:gallery_app_new/modules/row_column/bloc/row_column_state.dart';
 import 'package:gallery_app_new/widgets/my_app_bar_widget.dart';
 
