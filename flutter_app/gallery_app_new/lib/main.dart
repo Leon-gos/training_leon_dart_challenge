@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app_new/locator.dart';
+import 'package:gallery_app_new/modules/button/bloc/button_cubit.dart';
 import 'package:gallery_app_new/modules/container/bloc/container_cubit.dart';
 import 'package:gallery_app_new/modules/row_column/bloc/row_column_cubit.dart';
 import 'package:gallery_app_new/router/router.dart';
@@ -27,7 +28,12 @@ class MyApp extends StatelessWidget {
           BlocProvider<RowColumnCubit>(
             create: (context) => RowColumnCubit(),
           ),
-          BlocProvider<ContainerCubit>(create: (context) => ContainerCubit(),)
+          BlocProvider<ContainerCubit>(
+            create: (context) => ContainerCubit(),
+          ),
+          BlocProvider<ButtonCubit>(
+            create: (context) => ButtonCubit(),
+          ),
         ],
         child: MaterialApp.router(
           title: 'Flutter Demo',

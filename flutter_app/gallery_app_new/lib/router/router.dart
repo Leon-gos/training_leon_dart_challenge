@@ -1,4 +1,4 @@
-import 'package:gallery_app_new/modules/button/button_screen.dart';
+import 'package:gallery_app_new/modules/button/screen/button_screen.dart';
 import 'package:gallery_app_new/modules/container/screen/container_screen.dart';
 import 'package:gallery_app_new/modules/home/screen/home_screen.dart';
 import 'package:gallery_app_new/modules/row_column/screen/row_and_column_screen.dart';
