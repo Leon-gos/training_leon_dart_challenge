@@ -21,7 +21,9 @@ class WrapChipScreen extends StatelessWidget {
               child: _buildDemo(),
             ),
           ),
-          const Divider(height: 0,),
+          const Divider(
+            height: 0,
+          ),
           Expanded(
             flex: 4,
             child: SingleChildScrollView(
@@ -84,9 +86,21 @@ class WrapChipScreen extends StatelessWidget {
               shape,
             ),
             _buildDemoChoiceChip(
-                spacing, runSpacing, elevation, avatar, delete, shape),
+              spacing,
+              runSpacing,
+              elevation,
+              avatar,
+              delete,
+              shape,
+            ),
             _buildDemoInputChip(
-                spacing, runSpacing, elevation, avatar, delete, shape),
+              spacing,
+              runSpacing,
+              elevation,
+              avatar,
+              delete,
+              shape,
+            ),
           ],
         );
       },
