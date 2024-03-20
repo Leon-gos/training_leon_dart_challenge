@@ -22,7 +22,6 @@ class ImageTitleAppbarScreen extends StatelessWidget {
             ],
             flexibleSpace: LayoutBuilder(
               builder: (context, constraints) {
-                var top = constraints.maxHeight;
                 return FlexibleSpaceBar(
                   title: const Text("Sliver appbar"),
                   background: Image.network(
