@@ -5,6 +5,7 @@ import 'package:gallery_app_new/modules/row_column/screen/row_and_column_screen.
 import 'package:gallery_app_new/modules/stack_align/screen/stack_align_screen.dart';
 import 'package:gallery_app_new/modules/text/screen/text_screen.dart';
 import 'package:gallery_app_new/modules/text_field/screen/text_field_screen.dart';
+import 'package:gallery_app_new/modules/wrap_chip/screen/wrap_chip_screen.dart';
 import 'package:gallery_app_new/router/route_name.dart';
 import 'package:go_router/go_router.dart';
 
@@ -46,6 +47,11 @@ class AppRouter {
         name: AppRouteNames.textField.name,
         path: AppRouteNames.textField.path,
         builder: (context, state) => const TextFieldScreen(),
+      ),
+      GoRoute(
+        name: AppRouteNames.wrapChip.name,
+        path: AppRouteNames.wrapChip.path,
+        builder: (context, state) => const WrapChipScreen(),
       ),
     ],
   );
