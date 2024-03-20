@@ -107,6 +107,16 @@ class HomeScreen extends StatelessWidget {
               context.push(AppRouteNames.container.path);
             },
           ),
+          HomeListTileWidget(
+            title: "Bottom appbar",
+            subtitle:
+                "A material widget that's displayed at the bottom of an app for selecting among a small " 
+                "number of views, typically between three and five.",
+            leadingIcon: Icons.check_box_outline_blank,
+            onClick: () {
+              context.push(AppRouteNames.bottomAppbar.path);
+            },
+          ),
         ],
       ),
     );
