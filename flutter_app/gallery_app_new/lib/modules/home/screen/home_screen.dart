@@ -39,13 +39,14 @@ class HomeScreen extends StatelessWidget {
               subtitle: "Bottom application bar",
               leadingIcon: Icons.more_vert_rounded),
           HomeListTileWidget(
-              title: "Button",
-              subtitle:
-                  "RaisedButton, FlatButton, DropdownButton, FloatingActionButton, IconButton, InkWell, RawMaterialButton",
-              leadingIcon: Icons.smart_button_rounded,
-              onClick: () {
-                context.push(AppRouteNames.button.path);
-              },),
+            title: "Button",
+            subtitle:
+                "RaisedButton, FlatButton, DropdownButton, FloatingActionButton, IconButton, InkWell, RawMaterialButton",
+            leadingIcon: Icons.smart_button_rounded,
+            onClick: () {
+              context.push(AppRouteNames.button.path);
+            },
+          ),
           const HomeListTileWidget(
               title: "List",
               subtitle: "Scrolling list layout",
@@ -80,10 +81,14 @@ class HomeScreen extends StatelessWidget {
               context.push(AppRouteNames.rowColumn.path);
             },
           ),
-          const HomeListTileWidget(
-              title: "Wrap & Chip",
-              subtitle: "Wrap & Chip",
-              leadingIcon: Icons.wrap_text),
+          HomeListTileWidget(
+            title: "Wrap & Chip",
+            subtitle: "Wrap & Chip",
+            leadingIcon: Icons.wrap_text,
+            onClick: () {
+              context.push(AppRouteNames.wrapChip.path);
+            },
+          ),
           HomeListTileWidget(
             title: "Stack & Align",
             subtitle:
