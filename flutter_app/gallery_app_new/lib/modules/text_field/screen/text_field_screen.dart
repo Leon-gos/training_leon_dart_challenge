@@ -42,16 +42,22 @@ class TextFieldScreen extends StatelessWidget {
   Widget _buidDemo() {
     return BlocBuilder<TextFieldCubit, TextFieldState>(
         builder: (context, state) {
-
       var decoration = InputDecoration(
         hintText: state.hasHinText ? "Hint text" : null,
         label: state.hasLabelText ? const Text("Label text") : null,
         helperText: state.hasHelpText ? "Helper text" : null,
-        error: state.hasErrorText ? const Text("Error text") : null,
+        error: state.hasErrorText
+            ? const Text(
+                "Error text",
+                style: TextStyle(color: Colors.red),
+              )
+            : null,
         counterText: state.hasCounterText ? "Counter text" : null,
         prefix: state.hasPrefix ? const Text("Prefix") : null,
         suffix: state.hasSuffix ? const Text("Suffix") : null,
-        prefixIcon: state.hasPrefixIcon ? const Icon(Icons.account_circle_outlined) : null,
+        prefixIcon: state.hasPrefixIcon
+            ? const Icon(Icons.account_circle_outlined)
+            : null,
       );
 
       return Padding(
@@ -77,7 +83,8 @@ class TextFieldScreen extends StatelessWidget {
 
   Widget _buildHintText() {
     return BlocBuilder<TextFieldCubit, TextFieldState>(
-      buildWhen: (previous, current) => previous.hasHinText != current.hasHinText,
+      buildWhen: (previous, current) =>
+          previous.hasHinText != current.hasHinText,
       builder: (context, state) => Row(
         children: [
           const Text("Hint text"),
@@ -95,7 +102,8 @@ class TextFieldScreen extends StatelessWidget {
 
   Widget _buildLabelText() {
     return BlocBuilder<TextFieldCubit, TextFieldState>(
-      buildWhen: (previous, current) => previous.hasLabelText != current.hasLabelText,
+      buildWhen: (previous, current) =>
+          previous.hasLabelText != current.hasLabelText,
       builder: (context, state) => Row(
         children: [
           const Text("Label text"),
@@ -113,7 +121,8 @@ class TextFieldScreen extends StatelessWidget {
 
   Widget _buildHelpText() {
     return BlocBuilder<TextFieldCubit, TextFieldState>(
-      buildWhen: (previous, current) => previous.hasHelpText != current.hasHelpText,
+      buildWhen: (previous, current) =>
+          previous.hasHelpText != current.hasHelpText,
       builder: (context, state) => Row(
         children: [
           const Text("Help text"),
@@ -131,7 +140,8 @@ class TextFieldScreen extends StatelessWidget {
 
   Widget _buildErrorText() {
     return BlocBuilder<TextFieldCubit, TextFieldState>(
-      buildWhen: (previous, current) => previous.hasErrorText != current.hasErrorText,
+      buildWhen: (previous, current) =>
+          previous.hasErrorText != current.hasErrorText,
       builder: (context, state) => Row(
         children: [
           const Text("Error text"),
@@ -149,7 +159,8 @@ class TextFieldScreen extends StatelessWidget {
 
   Widget _buildCounterText() {
     return BlocBuilder<TextFieldCubit, TextFieldState>(
-      buildWhen: (previous, current) => previous.hasCounterText != current.hasCounterText,
+      buildWhen: (previous, current) =>
+          previous.hasCounterText != current.hasCounterText,
       builder: (context, state) => Row(
         children: [
           const Text("Counter text"),
@@ -203,7 +214,8 @@ class TextFieldScreen extends StatelessWidget {
 
   Widget _buildPrefixIcon() {
     return BlocBuilder<TextFieldCubit, TextFieldState>(
-      buildWhen: (previous, current) => previous.hasPrefixIcon != current.hasPrefixIcon,
+      buildWhen: (previous, current) =>
+          previous.hasPrefixIcon != current.hasPrefixIcon,
       builder: (context, state) => Row(
         children: [
           const Text("Prefix icon"),
