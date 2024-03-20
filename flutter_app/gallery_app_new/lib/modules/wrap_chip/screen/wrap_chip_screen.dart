@@ -77,6 +77,10 @@ class WrapChipScreen extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Text(
+              "Chip chip",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
             _buildDemoChipChip(
               spacing,
               runSpacing,
@@ -85,6 +89,10 @@ class WrapChipScreen extends StatelessWidget {
               delete,
               shape,
             ),
+            const Text(
+              "Choice chip",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
             _buildDemoChoiceChip(
               spacing,
               runSpacing,
@@ -92,6 +100,10 @@ class WrapChipScreen extends StatelessWidget {
               avatar,
               delete,
               shape,
+            ),
+            const Text(
+              "Input chip",
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
             _buildDemoInputChip(
               spacing,
