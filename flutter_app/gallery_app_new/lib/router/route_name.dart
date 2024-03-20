@@ -6,7 +6,8 @@ enum AppRouteNames {
   container(path: '/container'),
   button(path: '/button'),
   textField(path: '/textField'),
-  wrapChip(path: '/wrapChip');
+  wrapChip(path: '/wrapChip'),
+  imageTitleAppbar(path: '/imageTitleAppbar');
 
   const AppRouteNames({
     required this.path,
