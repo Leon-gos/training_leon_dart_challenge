@@ -4,7 +4,8 @@ enum AppRouteNames {
   stack(path: '/stack'),
   rowColumn(path: '/rowColumn'),
   container(path: '/container'),
-  button(path: '/button');
+  button(path: '/button'),
+  textField(path: '/textField');
 
   const AppRouteNames({
     required this.path,
