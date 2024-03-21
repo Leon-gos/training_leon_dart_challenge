@@ -7,7 +7,8 @@ enum AppRouteNames {
   button(path: '/button'),
   textField(path: '/textField'),
   wrapChip(path: '/wrapChip'),
-  bottomAppbar(path: '/bottomAppbar');
+  bottomAppbar(path: '/bottomAppbar'),
+  cupertino(path: '/cupertino');
 
   const AppRouteNames({
     required this.path,
