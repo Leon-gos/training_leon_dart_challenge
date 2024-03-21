@@ -21,11 +21,15 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          const HomeListTileWidget(
-              title: "Cupertino",
-              subtitle:
-                  "Beautiful and high-fidety widgets for iOS design language",
-              leadingIcon: Icons.phone_android),
+          HomeListTileWidget(
+            title: "Cupertino",
+            subtitle:
+                "Beautiful and high-fidety widgets for iOS design language",
+            leadingIcon: Icons.phone_android,
+            onClick: () {
+              context.push(AppRouteNames.cupertino.path);
+            },
+          ),
           HomeListTileWidget(
             title: "Typography",
             subtitle: "All of the predefinded text style",

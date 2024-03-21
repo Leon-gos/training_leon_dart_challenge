@@ -1,5 +1,6 @@
 import 'package:gallery_app_new/modules/button/screen/button_screen.dart';
 import 'package:gallery_app_new/modules/container/screen/container_screen.dart';
+import 'package:gallery_app_new/modules/cupertino/screen/cupertino_screen.dart';
 import 'package:gallery_app_new/modules/home/screen/home_screen.dart';
 import 'package:gallery_app_new/modules/row_column/screen/row_and_column_screen.dart';
 import 'package:gallery_app_new/modules/stack_align/screen/stack_align_screen.dart';
@@ -52,6 +53,11 @@ class AppRouter {
         name: AppRouteNames.wrapChip.name,
         path: AppRouteNames.wrapChip.path,
         builder: (context, state) => const WrapChipScreen(),
+      ),
+      GoRoute(
+        name: AppRouteNames.cupertino.name,
+        path: AppRouteNames.cupertino.path,
+        builder: (context, state) => const CupertinoScreen(),
       ),
     ],
   );
