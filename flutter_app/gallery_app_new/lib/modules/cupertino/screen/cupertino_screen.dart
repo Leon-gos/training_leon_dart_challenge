@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart' as cupertino;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CupertinoScreen extends StatelessWidget {
@@ -6,23 +6,8 @@ class CupertinoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return cupertino.CupertinoTabScaffold(
-      tabBar: cupertino.CupertinoTabBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(cupertino.CupertinoIcons.star_fill),
-            label: 'Favorites',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(cupertino.CupertinoIcons.clock_solid),
-            label: 'Recents',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(cupertino.CupertinoIcons.person_alt_circle_fill),
-            label: 'Recents',
-          ),
-        ],
-      ),
+    return CupertinoTabScaffold(
+      tabBar: _buildTabBar(),
       tabBuilder: (BuildContext context, int index) {
         return Scaffold(
           body: SafeArea(
@@ -42,7 +27,7 @@ class CupertinoScreen extends StatelessWidget {
                     child: ListView(
                       children: [
                         const Center(
-                          child: cupertino.Text("Pull to refresh"),
+                          child: Text("Pull to refresh"),
                         ),
                         _buildIndicator(),
                         _buildButton(),
@@ -64,7 +49,7 @@ class CupertinoScreen extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(16),
       child: const Column(
-        crossAxisAlignment: cupertino.CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "CupertinoActivityIndicator",
@@ -74,7 +59,7 @@ class CupertinoScreen extends StatelessWidget {
             height: 8,
           ),
           Center(
-            child: cupertino.CupertinoActivityIndicator(),
+            child: CupertinoActivityIndicator(),
           ),
         ],
       ),
@@ -85,14 +70,14 @@ class CupertinoScreen extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(16),
       child: Column(
-        crossAxisAlignment: cupertino.CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             "Button",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           Center(
-            child: cupertino.CupertinoButton(
+            child: CupertinoButton(
               child: const Text(
                 "Button",
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -101,7 +86,7 @@ class CupertinoScreen extends StatelessWidget {
             ),
           ),
           Center(
-            child: cupertino.CupertinoButton(
+            child: CupertinoButton(
               color: Colors.amber,
               child: const Text("Button"),
               onPressed: () {},
@@ -116,7 +101,7 @@ class CupertinoScreen extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(16),
       child: Column(
-        crossAxisAlignment: cupertino.CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             "Slider",
@@ -124,7 +109,7 @@ class CupertinoScreen extends StatelessWidget {
           ),
           SizedBox(
             width: double.infinity,
-            child: cupertino.CupertinoSlider(
+            child: CupertinoSlider(
               value: 10,
               min: 0,
               max: 100,
@@ -133,7 +118,7 @@ class CupertinoScreen extends StatelessWidget {
           ),
           SizedBox(
             width: double.infinity,
-            child: cupertino.CupertinoSlider(
+            child: CupertinoSlider(
               value: 50,
               min: 0,
               max: 100,
@@ -149,7 +134,7 @@ class CupertinoScreen extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(16),
       child: Column(
-        crossAxisAlignment: cupertino.CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             "Switch",
@@ -161,11 +146,11 @@ class CupertinoScreen extends StatelessWidget {
           Center(
             child: Row(
               children: [
-                cupertino.CupertinoSwitch(
+                CupertinoSwitch(
                   value: true,
                   onChanged: (bool value) {},
                 ),
-                cupertino.CupertinoSwitch(
+                CupertinoSwitch(
                   value: false,
                   onChanged: (bool value) {},
                 ),
@@ -174,6 +159,25 @@ class CupertinoScreen extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  CupertinoTabBar _buildTabBar() {
+    return CupertinoTabBar(
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(CupertinoIcons.star_fill),
+          label: 'Favorites',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(CupertinoIcons.clock_solid),
+          label: 'Recents',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(CupertinoIcons.person_alt_circle_fill),
+          label: 'Recents',
+        ),
+      ],
     );
   }
 }
