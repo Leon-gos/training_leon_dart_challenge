@@ -1,6 +1,6 @@
 import 'package:gallery_app_new/modules/button/screen/button_screen.dart';
 import 'package:gallery_app_new/modules/container/screen/container_screen.dart';
-import 'package:gallery_app_new/modules/custom_box_shape/custom_box_shape_screen.dart';
+import 'package:gallery_app_new/modules/custom_box_shape/screen/custom_box_shape_screen.dart';
 import 'package:gallery_app_new/modules/home/screen/home_screen.dart';
 import 'package:gallery_app_new/modules/row_column/screen/row_and_column_screen.dart';
 import 'package:gallery_app_new/modules/stack_align/screen/stack_align_screen.dart';
