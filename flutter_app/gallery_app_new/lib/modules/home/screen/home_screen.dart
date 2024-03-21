@@ -130,6 +130,15 @@ class HomeScreen extends StatelessWidget {
               context.push(AppRouteNames.imageTitleAppbar.path);
             },
           ),
+          HomeListTileWidget(
+            title: "Custom box shape",
+            subtitle:
+                "Nothing here",
+            leadingIcon: Icons.shape_line_outlined,
+            onClick: () {
+              context.push(AppRouteNames.customBoxShape.path);
+            },
+          ),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:gallery_app_new/modules/button/screen/button_screen.dart';
 import 'package:gallery_app_new/modules/container/screen/container_screen.dart';
 import 'package:gallery_app_new/modules/cupertino/screen/cupertino_screen.dart';
+import 'package:gallery_app_new/modules/custom_box_shape/screen/custom_box_shape_screen.dart';
 import 'package:gallery_app_new/modules/home/screen/home_screen.dart';
 import 'package:gallery_app_new/modules/image_title_appbar/screen/image_title_appbar_screen.dart';
 import 'package:gallery_app_new/modules/row_column/screen/row_and_column_screen.dart';
@@ -70,6 +71,11 @@ class AppRouter {
         name: AppRouteNames.imageTitleAppbar.name,
         path: AppRouteNames.imageTitleAppbar.path,
         builder: (context, state) => const ImageTitleAppbarScreen(),
+      ),
+      GoRoute(
+        name: AppRouteNames.customBoxShape.name,
+        path: AppRouteNames.customBoxShape.path,
+        builder: (context, state) => const CustomBoxShapeScreen(),
       ),
     ],
   );

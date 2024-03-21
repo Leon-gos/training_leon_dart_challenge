@@ -9,7 +9,8 @@ enum AppRouteNames {
   wrapChip(path: '/wrapChip'),
   bottomAppbar(path: '/bottomAppbar'),
   cupertino(path: '/cupertino'),
-  imageTitleAppbar(path: '/imageTitleAppbar');
+  imageTitleAppbar(path: '/imageTitleAppbar'),
+  customBoxShape(path: '/customBoxShape');
 
   const AppRouteNames({
     required this.path,
