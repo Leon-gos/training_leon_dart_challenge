@@ -121,6 +121,15 @@ class HomeScreen extends StatelessWidget {
               context.push(AppRouteNames.bottomAppbar.path);
             },
           ),
+          HomeListTileWidget(
+            title: "Image & title appbar",
+            subtitle:
+                "When we want a dynamic toolbar that when we slide it shows us content, we use the great widget called SliverAppBar.",
+            leadingIcon: Icons.check_box_outline_blank,
+            onClick: () {
+              context.push(AppRouteNames.imageTitleAppbar.path);
+            },
+          ),
         ],
       ),
     );
