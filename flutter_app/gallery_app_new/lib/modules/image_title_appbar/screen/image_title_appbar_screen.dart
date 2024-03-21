@@ -7,12 +7,12 @@ class ImageTitleAppbarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
             pinned: true,
-            snap: false,
-            floating: false,
             expandedHeight: 300.0,
+            stretch: true,
             actions: [
               IconButton(
                 onPressed: () {},
@@ -28,6 +28,9 @@ class ImageTitleAppbarScreen extends StatelessWidget {
                     "https://images.unsplash.com/photo-1542601098-3adb3baeb1ec?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5bb9a9747954cdd6eabe54e3688a407e&auto=format&fit=crop&w=500&q=60",
                     fit: BoxFit.cover,
                   ),
+                  stretchModes: const [
+                    StretchMode.zoomBackground
+                  ],
                 );
               },
             ),
