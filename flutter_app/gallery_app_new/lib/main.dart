@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app_new/locator.dart';
+import 'package:gallery_app_new/modules/bottom_appbar/bloc/bottom_appbar_cubit.dart';
 import 'package:gallery_app_new/modules/button/bloc/button_cubit.dart';
 import 'package:gallery_app_new/modules/container/bloc/container_cubit.dart';
 import 'package:gallery_app_new/modules/row_column/bloc/row_column_cubit.dart';
@@ -42,6 +43,9 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => WrapChipCubit(),
           ),
+          BlocProvider(
+            create: (context) => BottomAppbarCubit(),
+          )
         ],
         child: MaterialApp.router(
           title: 'Flutter Demo',

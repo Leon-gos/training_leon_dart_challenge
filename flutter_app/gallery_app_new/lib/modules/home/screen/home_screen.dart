@@ -21,11 +21,15 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          const HomeListTileWidget(
-              title: "Cupertino",
-              subtitle:
-                  "Beautiful and high-fidety widgets for iOS design language",
-              leadingIcon: Icons.phone_android),
+          HomeListTileWidget(
+            title: "Cupertino",
+            subtitle:
+                "Beautiful and high-fidety widgets for iOS design language",
+            leadingIcon: Icons.phone_android,
+            onClick: () {
+              context.push(AppRouteNames.cupertino.path);
+            },
+          ),
           HomeListTileWidget(
             title: "Typography",
             subtitle: "All of the predefinded text style",
@@ -105,6 +109,25 @@ class HomeScreen extends StatelessWidget {
             leadingIcon: Icons.check_box_outline_blank,
             onClick: () {
               context.push(AppRouteNames.container.path);
+            },
+          ),
+          HomeListTileWidget(
+            title: "Bottom appbar",
+            subtitle:
+                "A material widget that's displayed at the bottom of an app for selecting among a small " 
+                "number of views, typically between three and five.",
+            leadingIcon: Icons.check_box_outline_blank,
+            onClick: () {
+              context.push(AppRouteNames.bottomAppbar.path);
+            },
+          ),
+          HomeListTileWidget(
+            title: "Image & title appbar",
+            subtitle:
+                "When we want a dynamic toolbar that when we slide it shows us content, we use the great widget called SliverAppBar.",
+            leadingIcon: Icons.check_box_outline_blank,
+            onClick: () {
+              context.push(AppRouteNames.imageTitleAppbar.path);
             },
           ),
           HomeListTileWidget(
