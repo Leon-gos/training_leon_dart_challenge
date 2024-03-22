@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "190493590716",
+    "project_id": "galleryapp-5aa1e",
+    "storage_bucket": "galleryapp-5aa1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190493590716:android:7d6c63bfd2cad991f6fcb9",
+        "android_client_info": {
+          "package_name": "com.leon.gallery_app_new"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVadkBZA2V3EgzqFCuhyDnvoRE5L-y6go"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

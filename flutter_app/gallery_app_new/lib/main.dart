@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_app_new/firebase_options.dart';
 import 'package:gallery_app_new/locator.dart';
 import 'package:gallery_app_new/modules/bottom_appbar/bloc/bottom_appbar_cubit.dart';
 import 'package:gallery_app_new/modules/button/bloc/button_cubit.dart';
@@ -12,7 +13,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_app_new/modules/stack_align/bloc/align_bloc/stack_bloc.dart';
 
 Future<void> main() async {
-  await initializeApp();
+  await initializeApp(
+    firebaseOptions: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
