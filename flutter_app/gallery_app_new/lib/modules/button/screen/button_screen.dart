@@ -93,7 +93,9 @@ class ButtonScreen extends StatelessWidget {
 
   Widget _buildElevatedButton() {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        throw Exception();
+      },
       style: ElevatedButton.styleFrom(
         minimumSize: const Size(double.infinity, 0),
         shape: RoundedRectangleBorder(
