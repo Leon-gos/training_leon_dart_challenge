@@ -1,0 +1,71 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+# default_platform(:android)
+
+# platform :android do
+#   desc "Runs all the tests"
+#   lane :test do
+#     gradle(task: "test")
+#   end
+
+#   desc "Submit a new Beta Build to Crashlytics Beta"
+#   lane :beta do
+#     gradle(task: "clean assembleRelease")
+#     crashlytics
+  
+#     # sh "your_script.sh"
+#     # You can also use other beta testing services here
+#   end
+
+#   desc "Deploy a new version to the Google Play"
+#   lane :deploy do
+#     gradle(task: "clean assembleRelease")
+#     upload_to_play_store
+#   end
+# end
+
+aabPath = '../build/app/outputs/bundle/release/app-release.aab'
+apkPath = '../build/app/outputs/apk/release/app-release.apk'
+firebaseAppID = '1:190493590716:android:7d6c63bfd2cad991f6fcb9'
+
+default_platform(:android)
+
+platform :android do
+  # desc "Submit a new beta build to Google Play"
+  # lane :beta do
+  #   sh "flutter build appbundle -v"
+  #   upload_to_play_store(
+  #     track: 'internal', # production, beta, alpha, internal
+  #     aab: aabPath,
+  #     # release_status: 'draft',  # Remove after enable beta
+  #   )
+  # end
+
+  desc "Deploy with Firebase"
+  lane :firebase do
+    sh "flutter build apk --release"
+    # This project is not linked to a Google Play account.
+    firebase_app_distribution(
+      app: firebaseAppID,
+      testers: "leon.nguyen.gos@gmail.com",
+      groups: "Leon tester",
+      release_notes: sh("git log -10 --pretty='%s'"),
+      android_artifact_path: apkPath,
+      firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"]
+    )
+  end
+
+end
