@@ -19,6 +19,7 @@ jobs:
           flutter-version: '3.x'
       - run: flutter --version
       - run: cd flutter_app/gallery_app_new
+      - run: dir
       - run: flutter pub get
       - name: build release 
         run: flutter build appbundle
