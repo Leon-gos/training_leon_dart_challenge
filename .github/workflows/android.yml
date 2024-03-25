@@ -23,7 +23,6 @@ jobs:
         run: |
           echo $ENCODED_STRING > keystore-b64.txt
           base64 -d keystore-b64.txt > keytore.jks
-          dir
 
       - name: set up JDK 17
         uses: actions/setup-java@v3
@@ -42,6 +41,9 @@ jobs:
         working-directory: flutter_app/gallery_app_new
         run: flutter pub get
 
+      - run: dir
+        working-directory: flutter_app/gallery_app_new/android/app
+        
       - name: build release
         working-directory: flutter_app/gallery_app_new
         env:
