@@ -17,6 +17,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.x'
+      - run: cd flutter_app/gallery_app_new
       - run: flutter --version
       - name: pub get
         run: flutter pub get
