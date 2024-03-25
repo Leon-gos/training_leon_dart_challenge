@@ -12,6 +12,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: write key
+        run: echo "${{ secrets.SIGNING_KEY_STORE }}" > ${{ secrets.SIGNING_KEY_STORE_PATH }}
+        
       - uses: actions/checkout@v4
 
       - name: set up JDK 17
@@ -31,8 +34,7 @@ jobs:
         working-directory: flutter_app/gallery_app_new
         run: flutter pub get
 
-      - name: write key
-        run: echo ${{ secrets.SIGNING_KEY_STORE }} > ${{ secrets.SIGNING_KEY_STORE_PATH }}
+      
 
       - name: build release
         working-directory: flutter_app/gallery_app_new
