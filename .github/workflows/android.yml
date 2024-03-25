@@ -18,7 +18,6 @@ jobs:
         working-directory: flutter_app/gallery_app_new/android/app
         env:
           ENCODED_STRING: ${{ secrets.SIGNING_KEY_STORE_BASE64 }}
-          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
  
         run: |
           echo $ENCODED_STRING > keystore-b64.txt
@@ -47,7 +46,7 @@ jobs:
       - name: build release
         working-directory: flutter_app/gallery_app_new
         env:
-           SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
+           SIGNING_KEY_STORE_PATH: keytore.jks
            SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
            SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
            SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
