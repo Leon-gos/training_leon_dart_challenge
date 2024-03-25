@@ -30,7 +30,11 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/*
-!/build/app/outputs/bundle/release/
+/build/app/*
+/build/app/outputs/*
+!/build/app/
+!/build/app/outputs
+!/build/app/outputs/bundle
 
 # Symbolication related
 app.*.symbols
