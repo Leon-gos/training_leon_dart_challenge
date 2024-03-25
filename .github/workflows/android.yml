@@ -21,7 +21,7 @@ jobs:
  
         run: |
           echo $ENCODED_STRING > keystore-b64.txt
-          base64 -d keystore-b64.txt > keytore.jks
+          base64 -d keystore-b64.txt > keystore.jks
 
       - name: set up JDK 17
         uses: actions/setup-java@v3
@@ -46,7 +46,7 @@ jobs:
       - name: build release
         working-directory: flutter_app/gallery_app_new
         env:
-           SIGNING_KEY_STORE_PATH: keytore.jks
+           SIGNING_KEY_STORE_PATH: keystore.jks
            SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
            SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
            SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
