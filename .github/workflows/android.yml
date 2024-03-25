@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Decode Keystore
-        working-directory: /flutter_app/gallery_app_new/android/app
+        working-directory: flutter_app/gallery_app_new/android/app
         env:
           ENCODED_STRING: ${{ secrets.SIGNING_KEY_STORE_BASE64 }}
           SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
@@ -38,13 +38,13 @@ jobs:
       - run: flutter --version
       
       - name: pub get
-        working-directory: /flutter_app/gallery_app_new
+        working-directory: flutter_app/gallery_app_new
         run: flutter pub get
 
       
 
       - name: build release
-        working-directory: /flutter_app/gallery_app_new
+        working-directory: flutter_app/gallery_app_new
         env:
            SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
            SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
