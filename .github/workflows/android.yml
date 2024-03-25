@@ -57,4 +57,4 @@ jobs:
           appId: ${{secrets.FIREBASE_APP_ID}}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}      
           groups: testers
-          file: flutter_app/gallery_app_new/build/app/outputs/bundle/app-release.aab
+          file: flutter_app/gallery_app_new/build/app/outputs/bundle/release/app-release.aab
