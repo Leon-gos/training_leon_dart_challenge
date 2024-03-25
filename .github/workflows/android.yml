@@ -18,8 +18,8 @@ jobs:
         with:
           flutter-version: '3.x'
       - run: flutter --version
-      - run: cd flutter_app/gallery_app_newjhkjhkj
-      - run: flutter pub get
+      - run: cd flutter_app/gallery_app_new
+      # - run: flutter pub get
       - name: build release 
         run: flutter build appbundle
       - uses: wzieba/Firebase-Distribution-Github-Action@v1
