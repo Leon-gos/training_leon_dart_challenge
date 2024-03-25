@@ -1,0 +1,22 @@
+aabPath = '../build/app/outputs/bundle/release/app-release.aab'
+apkPath = '../build/app/outputs/apk/release/app-release.apk'
+firebaseAppID = '1:190493590716:android:7d6c63bfd2cad991f6fcb9'
+
+default_platform(:android)
+
+platform :android do
+  desc "Deploy with Firebase"
+  lane :firebase do
+    sh "flutter build apk --release"
+    # This project is not linked to a Google Play account.
+    release = firebase_app_distribution(
+      app: firebaseAppID,
+      testers: "thanhtan27032001@gmail.com",
+      # groups: "LeonTester",
+      release_notes: "fastlane app release",
+      android_artifact_path: apkPath,
+      # firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"]
+    )
+  end
+
+end
