@@ -11,7 +11,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    steps:
+    steps:        
+      - uses: actions/checkout@v4
+
       - name: Decode Keystore
         working-directory: flutter_app/gallery_app_new/android/app
         env:
@@ -21,8 +23,6 @@ jobs:
         run: |
           echo $ENCODED_STRING > keystore-b64.txt
           base64 -d keystore-b64.txt > $SIGNING_KEY_STORE_PATH
-        
-      - uses: actions/checkout@v4
 
       - name: set up JDK 17
         uses: actions/setup-java@v3
@@ -40,8 +40,6 @@ jobs:
       - name: pub get
         working-directory: flutter_app/gallery_app_new
         run: flutter pub get
-
-      
 
       - name: build release
         working-directory: flutter_app/gallery_app_new
