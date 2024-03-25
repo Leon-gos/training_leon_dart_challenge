@@ -13,6 +13,7 @@ jobs:
 
     steps:
       - name: Decode Keystore
+        working-directory: flutter_app/gallery_app_new/android/app
         env:
           ENCODED_STRING: ${{ secrets.SIGNING_KEY_STORE_BASE64 }}
           SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
