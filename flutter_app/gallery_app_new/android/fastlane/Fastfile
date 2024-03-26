@@ -23,7 +23,7 @@ platform :android do
   lane :alpha do
     # gradle(task: "clean bundleRelease")
     upload_to_play_store(
-      json_key_data: 'System.getenv("CREDENTIAL_FILE_CONTENT_GG_PLAY")',
+      json_key_data: System.getenv("CREDENTIAL_FILE_CONTENT_GG_PLAY"),
       track: 'alpha',
       aab: '../build/app/outputs/bundle/release/app-release.aab'
     )
