@@ -37,7 +37,14 @@ jobs:
         run: flutter pub get
 
       
-      - name: Distribute app to Alpha track 🚀
+      - name: Distribute app to Alpha track
+        env:
+          SIGNING_KEY_STORE_PATH: keystore.jks
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          CREDENTIAL_FILE_CONTENT_GG_PLAY: ${{ secrets.CREDENTIAL_FILE_CONTENT_GG_PLAY }}
+        working-directory: flutter_app/gallery_app_new/android
         run: bundle exec fastlane alpha
 
       # - run: dir
@@ -45,11 +52,11 @@ jobs:
         
       # - name: build release
       #   working-directory: flutter_app/gallery_app_new
-      #   env:
-      #      SIGNING_KEY_STORE_PATH: keystore.jks
-      #      SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
-      #      SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-      #      SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+        # env:
+        #    SIGNING_KEY_STORE_PATH: keystore.jks
+        #    SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+        #    SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+        #    SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
       #   run: flutter build appbundle
                  
       # - uses: wzieba/Firebase-Distribution-Github-Action@v1
