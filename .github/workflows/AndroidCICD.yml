@@ -19,7 +19,7 @@ jobs:
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
           CREDENTIAL_FILE_CONTENT_GG_PLAY: ${{ secrets.CREDENTIAL_FILE_CONTENT_GG_PLAY }}
-        run: echo CREDENTIAL_FILE_CONTENT_GG_PLAY
+        run: echo "$CREDENTIAL_FILE_CONTENT_GG_PLAY"
         
       # - uses: actions/checkout@v4
 
